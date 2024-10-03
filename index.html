@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Flashcards Review</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  .flashcard-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flashcard {
+    background-color: #fff;
+    width: 300px;
+    height: 200px;
+    margin: 15px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  .flashcard:hover .flashcard-inner {
+    transform: rotateY(180deg);
+  }
+  .flashcard-front, .flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+  }
+  .flashcard-front {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .flashcard-back {
+    background-color: #fafafa;
+    color: #000;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .flashcard p {
+    margin: 0;
+  }
+  h1 {
+    text-align: center;
+    padding: 20px;
+  }
+  .section-title {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  code {
+    background-color: #eee;
+    padding: 2px 4px;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+
+<h1>Flashcards Review</h1>
+
+<div class="flashcard-container">
+
+  <!-- Section: PL Concepts and OCaml Basics -->
+  <div class="section-title"><h2>PL Concepts and OCaml Basics</h2></div>
+
+  <!-- Flashcard 1 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the difference between syntax and semantics in programming languages?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p><strong>Syntax</strong> refers to the structure or form of code—what a program looks like. <strong>Semantics</strong> refers to the meaning or behavior of the code—what a program does when it runs. The same syntax can have different semantics in different languages.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 2 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What are formal semantics in the context of programming languages?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>Formal semantics provide a mathematical and precise definition of a programming language's behavior, often using operational semantics to describe how each statement changes the state of computation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 3 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>List three fundamental differences between programming paradigms.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          1. <strong>Recursion vs. Looping</strong>: Use of recursive functions versus iterative loops for repetition.<br>
+          2. <strong>Mutation vs. Functional Update</strong>: Modifying data in place versus creating new data structures with updates.<br>
+          3. <strong>Manual vs. Automatic Memory Management</strong>: Requiring explicit memory allocation/deallocation versus automated garbage collection.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 4 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the difference between a compiler and an interpreter?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          <strong>Compiler</strong>: Translates source code into machine code before execution (e.g., gcc, javac).<br>
+          <strong>Interpreter</strong>: Executes code line by line at runtime without prior compilation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 5 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Describe two key characteristics of functional programming languages.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          1. <strong>Immutability</strong>: Variables are not redefined; new values are created instead of modifying existing ones.<br>
+          2. <strong>Higher-order functions</strong>: Functions can be passed as arguments, returned from other functions, and assigned to variables.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 6 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>How does OCaml handle typing, and what are its primitive built-in data types?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <strong>Implicitly typed</strong>: The compiler infers types at compile time.<br>
+          - <strong>Statically typed</strong>: Once a variable's type is inferred, it must remain of that type.<br>
+          - <strong>Primitive data types</strong>: <code>int</code>, <code>float</code>, <code>char</code>, <code>string</code>, <code>bool</code>, and <code>unit</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 7 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the difference between tuples and lists in OCaml?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <strong>Tuples</strong>: Fixed-length, can contain elements of different types (heterogeneous).<br>
+          - <strong>Lists</strong>: Variable-length, all elements must be of the same type (homogeneous).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 8 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain the use of <code>::</code> and <code>@</code> operators in OCaml lists.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <code>::</code> (cons operator): Adds an element to the front of a list (e.g., <code>element :: list</code>).<br>
+          - <code>@</code> (append operator): Concatenates two lists of the same type (e.g., <code>list1 @ list2</code>).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 9 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Why are there no statements in OCaml, only expressions? Provide an example.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          In OCaml, everything is an expression that evaluates to a value, and all values have types. This design encourages functional programming principles.<br>
+          <strong>Example:</strong> <code>let x = 5 + 2</code> is an expression that evaluates to <code>7</code> and binds <code>x</code> to <code>7</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 10 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the difference between records and variants in OCaml?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <strong>Records</strong>: Collections of labeled fields, used to group related data (like structs).<br>
+          - <strong>Variants</strong>: Define a type that can be one of several different forms (like enums), used for polymorphism and pattern matching.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 11 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Define type system, type checking, and type inference.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <strong>Type System</strong>: Rules that assign a property called "type" to the various constructs of a computer program.<br>
+          - <strong>Type Checking</strong>: The process of verifying and enforcing the constraints of types to ensure correctness.<br>
+          - <strong>Type Inference</strong>: The ability of the language to automatically deduce, either at compile time or runtime, the type of an expression.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 12 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain the relationship between expressions and values in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - In OCaml, almost everything is an expression.<br>
+          - Expressions evaluate to values.<br>
+          - All values are expressions, but not all expressions are values (some expressions need evaluation).<br>
+          - All expressions have a data type.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 13 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>How are variable types determined in OCaml?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Variable types are determined by the operations or syntax used in expressions. The context in which a variable is used helps the compiler infer its type.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 14 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>List some common OCaml operators and their associated types.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <strong>Boolean Operators</strong>: <code>&&</code>, <code>||</code>, <code>not</code> (operate on <code>bool</code>).<br>
+          - <strong>Integer Operators</strong>: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>mod</code> (operate on <code>int</code>).<br>
+          - <strong>Float Operators</strong>: <code>+.</code>, <code>-.</code>, <code>*.</code>, <code>/.</code>, <code>mod.</code> (operate on <code>float</code>).<br>
+          - <strong>String Concatenation</strong>: <code>^</code> (operates on <code>string</code>).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 15 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What are generic types in OCaml, and when are they used?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - Generic types, denoted by <code>'a</code>, represent types that are unknown or can be any type.<br>
+          - They are used when the type cannot be determined by inference or when writing functions that operate on any type.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 16 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain pattern matching in OCaml and its relation to types.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - Pattern matching allows for deconstructing data types and binding variables to values based on patterns.<br>
+          - It can be used in <code>match</code> statements or <code>let</code> bindings.<br>
+          - It helps in handling different data structures and their associated types.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 17 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Describe the steps to determine the type of an OCaml expression.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          1. Identify the number of inputs (parameters).<br>
+          2. Use the syntax and operations to infer the types of variables.<br>
+          3. Apply language rules (e.g., if-then-else requires matching types).<br>
+          4. Determine the return type based on the expression's evaluation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 18 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>How do you construct an expression from a given type in OCaml?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          1. Identify the number of inputs from the type signature.<br>
+          2. Assign variables to each input type.<br>
+          3. Build expressions using the variables, ensuring type compatibility.<br>
+          4. Ensure the final expression matches the desired return type.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 19 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Provide an example of determining types from the expression: <code>fun a b c d -> if c || d then b *. b else if c then b else a</code></strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - Inputs: 4 parameters (<code>a</code>, <code>b</code>, <code>c</code>, <code>d</code>).<br>
+          - <code>c</code> and <code>d</code> use <code>||</code>, so they are <code>bool</code>.<br>
+          - <code>b</code> uses <code>*.</code>, so it is <code>float</code>.<br>
+          - Return type must be <code>float</code>, so <code>a</code> is <code>float</code>.<br>
+          - Function type: <code>float -> float -> bool -> bool -> float</code>.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 20 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What are higher-order functions (HOFs) in functional programming?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Higher-order functions are functions that take other functions as arguments and/or return functions as results. They enable powerful abstraction and code reuse.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 21 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain the difference between <code>map</code> and <code>fold</code> in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <code>map</code>: Applies a function to each element of a list, returning a new list of results; it's structure-preserving.<br>
+          - <code>fold</code>: Reduces a list to a single value by iteratively applying a function, replacing constructors with function arguments.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 22 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the difference between <code>fold_left</code> and <code>fold_right</code> in OCaml?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <code>fold_left</code>: Processes the list from left to right (head to tail), accumulating the result.<br>
+          - <code>fold_right</code>: Processes the list from right to left (tail to head), useful when the operation is right-associative.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 23 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Provide an example of using <code>fold_left</code> in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          <code>List.fold_left (fun acc x -> acc + x) 0 [1; 2; 3];; (* Result: 6 *)</code><br>
+          This sums the elements of the list starting from an accumulator of 0.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 24 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Provide an example of using <code>fold_right</code> in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          <code>List.fold_right (fun x acc -> x :: acc) [1; 2; 3] [];; (* Result: [1; 2; 3] *)</code><br>
+          This reconstructs the list by prepending elements to the accumulator.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 25 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is property-based testing (PBT)?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Property-based testing involves checking that code adheres to certain properties or invariants, rather than testing with specific inputs and expected outputs.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 26 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>List some properties that a list reversal function should uphold.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - The length of the reversed list equals the length of the original list.<br>
+          - Reversing the list twice returns the original list.<br>
+          - The set of elements remains the same (elements are not lost or altered).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 27 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What are the three aspects to consider in property-based testing?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          1. The validity of the <strong>property itself</strong> in describing the intended behavior.<br>
+          2. The correctness of the <strong>implementation of the property</strong> (does it correctly represent the property).<br>
+          3. Whether the <strong>function implementation</strong> upholds the property (does it satisfy the property).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 28 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain why these aspects in PBT are mostly independent.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Each aspect focuses on a different part of the testing process: defining a valid property, correctly implementing the property for testing, and ensuring the function satisfies the property. Issues in one do not necessarily affect the others.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 29 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is shadowing in OCaml?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Shadowing occurs when a new variable with the same name as an existing variable is declared in a new scope, overriding the previous variable within that scope.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 30 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What are side effects in programming?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Side effects are changes in state or interactions with the outside world that occur during computation, beyond returning a result. Examples include modifying a variable, printing to the console, or writing to a file.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 31 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain the concept of immutability in functional programming.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Immutability means that once a data structure is created, it cannot be changed. Any "modifications" result in the creation of a new data structure, preserving the original.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 32 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>How does imperative programming differ from functional programming?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          - <strong>Imperative programming</strong>: Focuses on how to perform tasks using statements and procedures that change program state.<br>
+          - <strong>Functional programming</strong>: Emphasizes the use of expressions and declarations over statements, avoiding state and mutable data.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 33 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the purpose of higher-order functions in functional programming?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          They allow for functions to be more flexible and abstract by operating on other functions, enabling patterns like callbacks, function composition, and creating more reusable code.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 34 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Give an example of shadowing in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          <code>
+          let x = 5;;<br>
+          let x = 4 in x + 1;; (* x is 4 within this scope, result is 5 *)
+          </code>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 35 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain how currying works with an example in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Currying transforms a function that takes multiple arguments into a sequence of functions each taking a single argument.<br>
+          <code>
+          let add a b = a + b;;<br>
+          let add_five = add 5;;<br>
+          let result = add_five 3;; (* result is 8 *)
+          </code>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 36 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>How does OCaml's type inference benefit the programmer?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          It reduces the need for explicit type annotations, making code cleaner and less verbose, while still catching type errors at compile time.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 37 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>What is the role of pattern matching in OCaml's module system?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Pattern matching is not directly related to the module system. However, both are features of OCaml that enhance code organization and handling of complex data structures.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 38 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Provide an example of a property that may not catch all bugs in property-based testing.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          If a property only checks that the length of the output list equals the input list, it won't catch a function that incorrectly rearranges elements without changing length.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 39 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Explain why functions are considered first-class citizens in OCaml.</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          Functions can be passed as arguments, returned from other functions, assigned to variables, and stored in data structures, just like any other value.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flashcard 40 -->
+  <div class="flashcard">
+    <div class="flashcard-inner">
+      <div class="flashcard-front">
+        <p><strong>Why is immutability important in functional programming?</strong></p>
+      </div>
+      <div class="flashcard-back">
+        <p>
+          It prevents side effects, making code more predictable, easier to reason about, and less prone to bugs caused by unintended state changes.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
